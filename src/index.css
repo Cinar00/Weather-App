@@ -1,13 +1,132 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+    --color-title: #ffe978;
+    --color-search-background: #eaeaea;
+    --color-white: #fff;
+    --color-black: #000;
+    --color-result-background: #474747;
+
+
+    --title-font-size: 48px;
+    --searchInput-font-size: 22px;
+    --city-font-size: 64px;
+    --degree-font-size: 96px;
+    --status-font-size: 36px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#title {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--color-title);
+    font-size: var(--title-font-size);
+}
+
+
+/*********** Background Compenent ***********/
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: -10;
+    left: 0;
+    top: 0;
+}
+
+.background .background-image {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: -5;
+    right: 0;
+    bottom: 0;
+}
+
+.background .overlay {
+    position: absolute;
+    z-index: -3;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+/*********** Search Component ***********/
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.search .search-input {
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    padding: 20px;
+    border: none;
+    color: var(--color-black);
+    background: var(--color-search-background);
+    font-size: var(--searchInput-font-size);
+}
+
+.search input:focus{
+    outline: none!important;
+}
+
+
+/*********** Result Component ***********/
+
+.result {
+    position: relative;
+    margin-top: 100px;
+}
+
+.result .city {
+    color: var(--color-white);
+    font-size: var(--city-font-size);
+    text-align: center;
+}
+
+.result .city-info {
+    margin-top: 60px;
+    width: 100%;
+    height: 250px;
+    background: var(--color-result-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.result .city-info .degree {
+    color: var(--color-white);
+    font-size: var(--degree-font-size);
+    font-weight: bold;
+}
+
+.result .city-info .status {
+    font-size: var(--status-font-size);
+    color: var(--color-white);
+    margin-top: 20px;
+}
+
+
+/*********** Media Querys ***********/
+
+@media screen and (min-width: 950px) {
+    .app {
+        width: 60%;
+        height: 100vh;
+        margin: 0 auto;
+        background-color: rgba(3, 3, 3, 0.63);
+    }
 }

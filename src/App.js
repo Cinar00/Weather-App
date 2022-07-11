@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import "./index.css";
+
+import Background from "./Components/Background/Background";
+import Search from "./Components/Search/Search";
+import Result from "./Components/Result/Result";
 
 function App() {
+
+  const [havaDurumu, setHavaDurumu] = useState({});
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="app" >
+      <Background backgroundImage={havaDurumu.weather && havaDurumu.weather[0].main}/>
+      <div id="title">Hava Durumu</div>
+      <Search setHavaDurumu={setHavaDurumu} />
+      <Result hava={havaDurumu} />
+    </section>
   );
 }
 
